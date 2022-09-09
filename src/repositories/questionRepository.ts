@@ -11,7 +11,7 @@ export async function findById(id: number) {
 }
 
 export async function findAll() {
-  const rows = await prisma.question.findMany();
+  const rows = await prisma.question.findMany({ include: { Answers: true } });
   const data = {
     questions: rows,
   };
